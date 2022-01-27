@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'inside'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,6 +39,14 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        // elmasry (to use with heroku)
+        'inside' => [
+            'driver' => 'local',
+            'root' => public_path('img'),
+            'url' => env('APP_URL'),
             'visibility' => 'public',
         ],
 
