@@ -1,36 +1,60 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="frontend/images/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="frontend/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/chosen.min.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/style.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/color-01.css">
+    @livewireStyles()
+    @stack('css')
+</head>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+<body class="home-page home-01 ">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+    @include('layouts.header')
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+        {{$slot}}
+
+    @include('layouts.footer')
+
+
+
+    <script src="frontend/js/jquery-1.12.4.minb8ff.js?ver=1.12.4"></script>
+    <script src="frontend/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4"></script>
+    <script src="frontend/js/bootstrap.min.js"></script>
+    <script src="frontend/js/jquery.flexslider.js"></script>
+    <script src="frontend/js/chosen.jquery.min.js"></script>
+    <script src="frontend/js/owl.carousel.min.js"></script>
+    <script src="frontend/js/jquery.countdown.min.js"></script>
+    <script src="frontend/js/jquery.sticky.js"></script>
+    <script src="frontend/js/functions.js"></script>
+
+    @livewireScripts()
+    @stack('js')
+
+</body>
+
 </html>
+<!-- 
+ developing by : Mohamed Elmasry
+ Github        : https://github.com/elmasryn
+ Email         : elmasry_n@hotmail.com 
+-->
