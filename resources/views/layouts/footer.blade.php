@@ -3,7 +3,6 @@
  Github        : https://github.com/elmasryn
  Email         : elmasry_n@hotmail.com 
 -->
-</main>
 
 <footer id="footer">
     <div class="wrap-footer-content footer-style-1">
@@ -165,7 +164,7 @@
                             <h3 class="item-header">We Using Safe Payments:</h3>
                             <div class="item-content">
                                 <div class="wrap-list-item wrap-gallery">
-                                    <img src="frontend/images/payment.png" style="max-width: 260px;">
+                                    <img src="{{asset('frontend/images/payment.png')}}" style="max-width: 260px;">
                                 </div>
                             </div>
                         </div>
@@ -217,7 +216,7 @@
                                         <li>
                                             <a href="#" class="link-to-item" title="our application on apple store">
                                                 <figure>
-                                                    <img src="frontend/images/brands/apple-store.png" alt="apple store"
+                                                    <img src="{{asset('frontend/images/brands/apple-store.png')}}" alt="apple store"
                                                         width="128" height="36">
                                                 </figure>
                                             </a>
@@ -226,7 +225,7 @@
                                             <a href="#" class="link-to-item"
                                                 title="our application on google play store">
                                                 <figure>
-                                                    <img src="frontend/images/brands/google-play-store.png"
+                                                    <img src="{{asset('frontend/images/brands/google-play-store.png')}}"
                                                         alt="google play store" width="128" height="36">
                                                 </figure>
                                             </a>
