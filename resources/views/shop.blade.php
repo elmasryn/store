@@ -3,6 +3,9 @@
  Github        : https://github.com/elmasryn
  Email         : elmasry_n@hotmail.com 
 -->
+@push('css')
+    <link rel="stylesheet" type="text/css" href="/frontend/css/chosen.min.css">
+@endpush
 
 <!--main area-->
 <main id="main" class="main-site left-sidebar">
@@ -491,3 +494,8 @@
 
 </main>
 <!--main area-->
+
+@push('js')
+    <script src="/frontend/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4"></script>
+    <script src="/frontend/js/chosen.jquery.min.js"></script>
+@endpush

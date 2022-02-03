@@ -3,7 +3,11 @@
  Github        : https://github.com/elmasryn
  Email         : elmasry_n@hotmail.com 
 -->
-@section('body-class','inner-page about-us ')
+@push('css')
+    <link rel="stylesheet" type="text/css" href="/frontend/css/owl.carousel.min.css">
+@endpush
+
+@section('body-class', 'inner-page about-us ')
 
 <!--main area-->
 <main id="main" class="main-site">
@@ -231,3 +235,6 @@
 
 </main>
 <!--main area-->
+@push('js')
+    <script src="/frontend/js/owl.carousel.min.js"></script>
+@endpush

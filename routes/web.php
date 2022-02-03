@@ -30,7 +30,7 @@ Route::get('/cart' , Cart::class)->name('cart');
 Route::get('/checkout' , Checkout::class)->name('checkout');
 Route::get('/contact-us' , ContactUs::class)->name('contact-us');
 Route::get('/shop' , Shop::class)->name('shop');
-Route::get('/shop/{product}' , Product::class)->name('product');
+Route::get('/product/{product}' , Product::class)->name('product');
 Route::get('/thank-you' , ThankYou::class)->name('thank-you');
 
 require __DIR__.'/auth.php';

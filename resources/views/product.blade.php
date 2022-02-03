@@ -3,6 +3,10 @@
  Github        : https://github.com/elmasryn
  Email         : elmasry_n@hotmail.com 
 -->
+@push('css')
+    <link rel="stylesheet" type="text/css" href="/frontend/css/owl.carousel.min.css">
+@endpush
+
 @section('body-class', 'detail page')
 
 <!--main area-->
@@ -559,3 +563,8 @@
 
 </main>
 <!--main area-->
+
+@push('js')
+    <script src="/frontend/js/jquery.flexslider.js"></script>
+    <script src="/frontend/js/owl.carousel.min.js"></script>
+@endpush

@@ -4,6 +4,11 @@
  Email         : elmasry_n@hotmail.com 
 -->
 
+@push('css')
+    <link rel="stylesheet" type="text/css" href="/frontend/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/frontend/css/owl.carousel.min.css">
+@endpush
+
 <main id="main">
     <div class="container">
         <!--MAIN SLIDE-->
@@ -1301,3 +1306,8 @@
         </div>
     </div>
 </main>
+
+@push('js')
+    <script src="/frontend/js/owl.carousel.min.js"></script>
+    <script src="/frontend/js/jquery.countdown.min.js"></script>
+@endpush
