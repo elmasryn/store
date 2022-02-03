@@ -4,6 +4,7 @@ use App\Http\Livewire\AboutUs;
 use App\Http\Livewire\Cart;
 use App\Http\Livewire\Checkout;
 use App\Http\Livewire\ContactUs;
+use App\Http\Livewire\Dashboard\Home as DashboardHome;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Product;
 use App\Http\Livewire\Shop;
@@ -22,8 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //--------------------------------------------------------------------------
-// fronEnd
-
+// FrontEnd
 Route::get('/' , Home::class)->name('home');
 Route::get('/about-us' , AboutUs::class)->name('about-us');
 Route::get('/cart' , Cart::class)->name('cart');
@@ -32,7 +32,14 @@ Route::get('/contact-us' , ContactUs::class)->name('contact-us');
 Route::get('/shop' , Shop::class)->name('shop');
 Route::get('/product/{product}' , Product::class)->name('product');
 Route::get('/thank-you' , ThankYou::class)->name('thank-you');
+//--------------------------------------------------------------------------
 
 require __DIR__.'/auth.php';
 
 //--------------------------------------------------------------------------
+// BackEnd
+Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function () {
+    Route::get('/', DashboardHome::class)->name('home');
+});
+//--------------------------------------------------------------------------
+
