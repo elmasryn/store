@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +20,83 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             CitySeeder::class,
         ]);
-        \App\Models\User::factory(10)->create();
+
+
+
+
+
+
+
+        // create users with (profile + notifyings) and assign roles to them
+        $user = User::factory()
+            ->hasProfile()
+            ->hasNotifying()
+            ->create([
+                'name' => 'admin',
+                'email' => 'admin@test.com',
+            ]);
+        $user->assignRole('super-admin');
+
+        $user = User::factory()
+            ->hasProfile()
+            ->hasNotifying()
+            ->create([
+                'name' => 'admin2',
+                'email' => 'admin2@test.com',
+            ]);
+        $user->assignRole('admin');
+
+        $user = User::factory()
+            ->hasProfile()
+            ->hasNotifying()
+            ->create([
+                'name' => 'supervisor',
+                'email' => 'supervisor@test.com',
+            ]);
+        $user->assignRole('supervisor');
+
+        $user = User::factory()
+            ->hasProfile()
+            ->hasNotifying()
+            ->create([
+                'name' => 'vendor',
+                'email' => 'vendor@test.com',
+            ]);
+        $user->assignRole('vendor');
+
+        $user = User::factory()
+            ->hasProfile()
+            ->hasNotifying()
+            ->create([
+                'name' => 'shipper',
+                'email' => 'shipper@test.com',
+            ]);
+        $user->assignRole('shipper');
+
+        $user = User::factory()
+            ->hasProfile()
+            ->hasNotifying()
+            ->create([
+                'name' => 'user',
+                'email' => 'user@test.com',
+            ]);
+        $user->assignRole('user');
+
+        for ($i = 1; $i < 11; $i++) {
+            $user = User::factory()
+                ->hasProfile()
+                ->hasNotifying()
+                ->create();
+            $user->assignRole('user');
+        }
+
+
+
+
+
+
+        // Will be excuted in RoleSeeder
+        // \App\Models\Profile::factory(16)->create();
+        // \App\Models\User::factory(16)->create(); 
     }
 }

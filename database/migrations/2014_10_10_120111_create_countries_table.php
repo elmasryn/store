@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('slug', 100)->unique();
             $table->tinyText('currency');
-            $table->smallInteger('code');
+            $table->string('code', 6);
             $table->string('img');
             $table->boolean('status')->default(true);  /* 1, '1', true active / 0, '0', false inactive */
             $table->timestamps();

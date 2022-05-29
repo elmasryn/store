@@ -22,7 +22,7 @@ class CountrySeeder extends Seeder
                 'currency' => ['EGP', 'SAR', 'AED', 'SDG', 'USD'][$i-1],
                 'code' => ['+20', '+966', '+971', '+249', '+1'][$i-1],
                 'status' => [true, true, true, true, false][$i-1],
-                'img' => ['frontend/images/countries/Egypt.png', 'frontend/images/countries/Saudi-Arabia.png', 'frontend/images/countries/United-Arab-Emirates.png', 'frontend/images/countries/Sudan.png', 'frontend/images/countries/United-States.png'][$i-1],
+                'img' => ['Egypt.png', 'Saudi-Arabia.png', 'United-Arab-Emirates.png', 'Sudan.png', 'United-States.png'][$i-1],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

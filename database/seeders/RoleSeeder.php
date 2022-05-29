@@ -26,8 +26,9 @@ class RoleSeeder extends Seeder
         }
 
         // gets all permissions via Gate::before rule; see AuthServiceProvider
-        $role0 = Role::create(['name' => 'Super-Admin'])
+        $role0 = Role::create(['name' => 'super-admin'])
             ->givePermissionTo(Permission::all());
+            
         $role1 = Role::create(['name' => 'admin'])
             ->givePermissionTo(Permission::all());
 
@@ -43,43 +44,6 @@ class RoleSeeder extends Seeder
 
         $role5 = Role::create(['name' => 'user'])
             ->givePermissionTo($this->userPermission());
-
-        // create roles and assign existing permissions
-        $user = User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@test.com',
-        ]);
-        $user->assignRole($role0);
-
-        $user = User::factory()->create([
-            'name' => 'admin2',
-            'email' => 'admin2@test.com',
-        ]);
-        $user->assignRole($role1);
-
-        $user = User::factory()->create([
-            'name' => 'supervisor',
-            'email' => 'supervisor@test.com',
-        ]);
-        $user->assignRole($role2);
-
-        $user = User::factory()->create([
-            'name' => 'vendor',
-            'email' => 'vendor@test.com',
-        ]);
-        $user->assignRole($role3);
-
-        $user = User::factory()->create([
-            'name' => 'shipper',
-            'email' => 'shipper@test.com',
-        ]);
-        $user->assignRole($role4);
-
-        $user = User::factory()->create([
-            'name' => 'user',
-            'email' => 'user@test.com',
-        ]);
-        $user->assignRole($role5);
     }
 
     protected $adminPermissions = [
@@ -185,5 +149,3 @@ class RoleSeeder extends Seeder
         ];
     }
 }
-
-
