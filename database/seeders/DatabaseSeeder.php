@@ -19,11 +19,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             CountrySeeder::class,
             CitySeeder::class,
+            SettingSeeder::class,
         ]);
-
-
-
-
 
 
 
@@ -90,13 +87,5 @@ class DatabaseSeeder extends Seeder
             $user->assignRole('user');
         }
 
-
-
-
-
-
-        // Will be excuted in RoleSeeder
-        // \App\Models\Profile::factory(16)->create();
-        // \App\Models\User::factory(16)->create(); 
     }
 }
