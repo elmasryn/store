@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //call before User seeding
         $this->call([
             RoleSeeder::class,
             CategorySeeder::class,
@@ -86,6 +87,11 @@ class DatabaseSeeder extends Seeder
                 ->create();
             $user->assignRole('user');
         }
+
+        //call after User seeding
+        $this->call([
+            PageSeeder::class,
+        ]);
 
     }
 }
