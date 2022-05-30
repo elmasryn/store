@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
-            $table->id();
+            $table->smallIncrements('id');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->string('name', 100);
             $table->string('slug', 100)->unique();
