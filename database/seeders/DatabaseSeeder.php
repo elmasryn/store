@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             SettingSeeder::class,
             BrandSeeder::class,
+            TagSeeder::class,
         ]);
 
 
