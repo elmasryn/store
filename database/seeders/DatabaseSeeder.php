@@ -92,6 +92,7 @@ class DatabaseSeeder extends Seeder
         //call after User seeding
         $this->call([
             PageSeeder::class,
+            OptionSeeder::class,
         ]);
 
     }
