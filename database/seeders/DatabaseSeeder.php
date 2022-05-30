@@ -93,6 +93,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PageSeeder::class,
             OptionSeeder::class,
+            OptionValueSeeder::class,
         ]);
 
     }
