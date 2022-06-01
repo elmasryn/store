@@ -17,6 +17,7 @@ class OptionValueSeeder extends Seeder
         for ($i = 1; $i < 11; $i++) {
             DB::table('option_values')->insert([
                 'user_id' => rand(1,4),
+                'product_id' => $i < 3 ? 1 : ($i < 5 ? 2 : ($i < 7 ? 3 : ($i < 9 ? 4 : 5))),
                 'option_id' => $i < 3 ? 1 : ($i < 5 ? 2 : ($i < 7 ? 3 : ($i < 9 ? 4 : 5))),
                 'name' => ['red', 'blue', '32px', '64px', '10g', '15g', 'Egypt', 'China', 'Samsung', 'Apple'][$i-1],
                 'charge' => [Null, Null, 5.00, 10.00, Null, 9, Null, Null, Null, 15.00][$i-1],

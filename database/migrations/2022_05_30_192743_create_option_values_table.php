@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('option_values', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('product_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedTinyInteger('option_id');
             $table->string('name', 100);
             $table->double('charge')->nullable();

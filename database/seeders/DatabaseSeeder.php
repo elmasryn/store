@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,18 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //call before User seeding
-        $this->call([
-            RoleSeeder::class,
-            CategorySeeder::class,
-            CountrySeeder::class,
-            CitySeeder::class,
-            SettingSeeder::class,
-            BrandSeeder::class,
-            TagSeeder::class,
-        ]);
 
-
+        $this->call(RoleSeeder::class);
 
         // create users with (profile + notifyings) and assign roles to them
         $user = User::factory()
@@ -87,15 +78,20 @@ class DatabaseSeeder extends Seeder
                 ->hasProfile()
                 ->hasNotifying()
                 ->create();
-            $user->assignRole('user');
+            Arr::random([$user->assignRole('user'), $user->assignRole('user'), $user->assignRole('user'), $user->assignRole('user'), $user->assignRole('user'), $user->assignRole('supervisor'), $user->assignRole('vendor')]);
         }
 
-        //call after User seeding
         $this->call([
+            CategorySeeder::class,
+            CountrySeeder::class,
+            CitySeeder::class,
+            SettingSeeder::class,
             PageSeeder::class,
+            BrandSeeder::class,
+            TagSeeder::class,
+            ProductSeeder::class,
             OptionSeeder::class,
             OptionValueSeeder::class,
         ]);
-
     }
 }
