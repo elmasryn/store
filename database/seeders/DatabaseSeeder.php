@@ -92,6 +92,7 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             OptionSeeder::class,
             OptionValueSeeder::class,
+            CategoryProductSeeder::class,
         ]);
     }
 }

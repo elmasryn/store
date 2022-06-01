@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedSmallInteger('country_id')->nullable();
             $table->unsignedSmallInteger('city_id')->nullable();
-            $table->unsignedSmallInteger('category_id')->nullable();
             $table->unsignedSmallInteger('brand_id')->nullable();
             $table->string('name', 100);
             $table->string('slug', 100)->unique();
@@ -48,7 +47,6 @@ return new class extends Migration
 
             $table->foreign('country_id')->references('id')->on('countries')->cascadeOnUpdate()->nullOnDelete();
             $table->foreign('city_id')->references('id')->on('cities')->cascadeOnUpdate()->nullOnDelete();
-            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnUpdate()->nullOnDelete();
             $table->foreign('brand_id')->references('id')->on('brands')->cascadeOnUpdate()->nullOnDelete();
         });
     }

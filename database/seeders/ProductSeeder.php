@@ -28,7 +28,6 @@ class ProductSeeder extends Seeder
                 'user_id' => $userId ?? 4,
                 'country_id' => $i < 6 ? 1 : ($i < 11 ? 2 : ($i < 16 ? 3 : ($i < 21 ? Null : rand(1, 5)))),
                 'city_id' => $i < 3 ? 1 : ($i == 6 ? 4 : ($i == 18 ? 7 : ($i == 20 ? 10 : Null))),
-                'category_id' => $i < 23 ? 1 : ($i < 33 ? 2 : ($i < 42 ? 4 : ($i < 52 ? 3 : ($i < 60 ? 5 : 6)))),
                 'brand_id' => $i == 3 ? 1 : ($i == 6 ? 4 : ($i == 10 ? 7 : ($i == 19 ? 10 : Null))),
                 'name' => $this->productName[$i - 1],
                 'slug' => Str::slug($this->productName[$i - 1], '-'),
