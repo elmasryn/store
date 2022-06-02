@@ -24,8 +24,9 @@ class ProductSeeder extends Seeder
             $offerEnd = $offer != Null ? Arr::random([now()->addDays(4), now()->addDays(5), now()->addDays(6), now()->addDays(10), Null, Null, Null, Null, Null]) : Null;
             $user = User::role('vendor')->pluck('id');
             $userId = $user->random();
+
             DB::table('products')->insert([
-                'user_id' => $userId ?? 4,
+                'user_id' => $userId ?? 1,
                 'country_id' => $i < 6 ? 1 : ($i < 11 ? 2 : ($i < 16 ? 3 : ($i < 21 ? Null : rand(1, 5)))),
                 'city_id' => $i < 3 ? 1 : ($i == 6 ? 4 : ($i == 18 ? 7 : ($i == 20 ? 10 : Null))),
                 'brand_id' => $i == 3 ? 1 : ($i == 6 ? 4 : ($i == 10 ? 7 : ($i == 19 ? 10 : Null))),

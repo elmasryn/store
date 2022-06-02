@@ -75,10 +75,11 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 1; $i < 11; $i++) {
             $user = User::factory()
-                ->hasProfile()
-                ->hasNotifying()
-                ->create();
-            Arr::random([$user->assignRole('user'), $user->assignRole('user'), $user->assignRole('user'), $user->assignRole('user'), $user->assignRole('user'), $user->assignRole('supervisor'), $user->assignRole('vendor')]);
+            ->hasProfile()
+            ->hasNotifying()
+            ->create();
+            $userRole = Arr::random(['user', 'user', 'user', 'user', 'user', 'supervisor', 'vendor']);
+                $user->assignRole($userRole);
         }
 
         $this->call([
@@ -94,6 +95,7 @@ class DatabaseSeeder extends Seeder
             OptionValueSeeder::class,
             CategoryProductSeeder::class,
             ProductTagSeeder::class,
+            CouponSeeder::class,
         ]);
     }
 }
