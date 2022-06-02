@@ -44,6 +44,7 @@ return new class extends Migration
             $table->date('refunded_at')->nullable();
             $table->date('completed_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
