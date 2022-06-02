@@ -18,6 +18,8 @@ class OrderProductSeeder extends Seeder
             DB::table('order_product')->insert([
                 'order_id' => $i,
                 'product_id' => $i < 6 ? $i : $i + 20,
+                'qty' => rand(1, 3),
+                'price' => rand(70, 1000),
             ]);
         }
     }
