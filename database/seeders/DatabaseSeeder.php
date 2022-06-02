@@ -93,6 +93,7 @@ class DatabaseSeeder extends Seeder
             OptionSeeder::class,
             OptionValueSeeder::class,
             CategoryProductSeeder::class,
+            ProductTagSeeder::class,
         ]);
     }
 }
