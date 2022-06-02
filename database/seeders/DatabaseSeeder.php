@@ -97,6 +97,7 @@ class DatabaseSeeder extends Seeder
             ProductTagSeeder::class,
             CouponSeeder::class,
             OrderSeeder::class,
+            OrderProductSeeder::class,
         ]);
     }
 }
