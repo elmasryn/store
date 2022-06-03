@@ -43,11 +43,11 @@ class OrderSeeder extends Seeder
                 'payment_method' => Arr::random([1, 2, Null, Null, Null, Null, Null, Null]),
                 'subtotal' => Arr::random([190, 290, 400, 450, 660, 850, 990, 1200, 1400, 1900, 2500, 3600]),
                 'total' => Arr::random([190, 290, 400, 450, 660, 850, 990, 1200, 1400, 1900, 2500, 3600]),
-                'published_at' => Arr::random([now(), now(), now(), now(), now(), Null]),
-                'rejected_at' => Arr::random([now(), Null, Null, Null, Null, Null, Null, Null, Null]),
-                'completed_at' => Arr::random([now()->addDay(2), Null, Null, Null, Null, Null, Null, Null, Null]),
-                'created_at' => now(),
-                'updated_at' => now(),
+                'published_at' => Arr::random([now()->addMinutes(70), now()->addMinutes(80), now()->addMinutes(90), now()->addMinutes(100), now()->addMinutes(110), Null]),
+                'rejected_at' => Arr::random([now()->addMinutes(120), Null, Null, Null, Null, Null, Null, Null, Null]),
+                'completed_at' => Arr::random([now()->addMinutes(130), Null, Null, Null, Null, Null, Null, Null, Null]),
+                'created_at' => now()->addMinutes(65),
+                'updated_at' => now()->addMinutes(65),
             ]);
         }
     }

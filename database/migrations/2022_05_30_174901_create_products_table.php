@@ -27,12 +27,12 @@ return new class extends Migration
             $table->text('sku', 15)->nullable();
             $table->unsignedSmallInteger('stock')->nullable()->default(1);
             $table->double('price');
-            $table->date('end_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->double('offer_sale')->nullable();
             $table->double('discount')->nullable();
             $table->double('offer_percent')->nullable();
-            $table->date('start_offer_at')->nullable();
-            $table->date('end_offer_at')->nullable();
+            $table->timestamp('start_offer_at')->nullable();
+            $table->timestamp('end_offer_at')->nullable();
             $table->boolean('offer_status')->default(false);  /* 1, '1', true active / 0, '0', false inactive */
             $table->unsignedBigInteger('views')->default(0);
             $table->boolean('featured')->default(false);  /* 1, '1', true active / 0, '0', false inactive */
@@ -40,8 +40,8 @@ return new class extends Migration
             $table->double('free_ship_price_start')->nullable();
             $table->double('local_ship_price')->nullable();
             $table->double('city_ship_price')->nullable();
-            $table->date('published_at')->nullable();
-            $table->date('rejected_at')->nullable();
+            $table->timestamp('published_at')->nullable();
+            $table->timestamp('rejected_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

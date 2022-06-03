@@ -13,17 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('shippings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('order_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->string('transaction_number');
-            $table->string('card_number', 30);
-            $table->string('cvc_number', 5);
-            $table->timestamp('expire_date');
-            $table->string('holder_name', 100);
+            $table->string('shipping_number', 50)->unique();
+            $table->string('lat_from', 50)->nullable();
+            $table->string('long_from', 50)->nullable();
+            $table->string('lat_to', 50)->nullable();
+            $table->string('long_to', 50)->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamp('rejected_at')->nullable();
+            $table->text('rejected_reason')->nullable();
             $table->timestamp('refunded_at')->nullable();
+            $table->timestamp('deliverd_at')->nullable();
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -37,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('shippings');
     }
 };

@@ -51,8 +51,8 @@ class ProductSeeder extends Seeder
                 'free_ship_price_start' => Arr::random([500, 650, 800, 1000, Null, Null, Null, Null, Null, Null, Null, Null]),
                 'local_ship_price' => Arr::random([10, 15, 20, 25, Null, Null, Null, Null, Null, Null, Null, Null]),
                 'city_ship_price' => Arr::random([30, 35, 40, 45, Null, Null, Null, Null, Null, Null, Null, Null]),
-                'published_at' => Arr::random([now(), now(), now(), now(), now(), Null]),
-                'rejected_at' => Arr::random([now(), Null, Null, Null, Null, Null, Null, Null, Null]),
+                'published_at' => Arr::random([now()->addMinutes(10), now()->addMinutes(20), now()->addMinutes(30), now()->addMinutes(40), now()->addMinutes(50), Null]),
+                'rejected_at' => Arr::random([now()->addMinutes(60), Null, Null, Null, Null, Null, Null, Null, Null]),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
             ->hasProfile()
             ->hasNotifying()
             ->create();
-            $userRole = Arr::random(['user', 'user', 'user', 'user', 'user', 'supervisor', 'vendor']);
+            $userRole = Arr::random(['user', 'user', 'user', 'user', 'user', 'supervisor', 'vendor', 'shipper']);
                 $user->assignRole($userRole);
         }
 
@@ -99,6 +99,7 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             OrderProductSeeder::class,
             ImageSeeder::class,
+            ShippingSeeder::class,
         ]);
     }
 }

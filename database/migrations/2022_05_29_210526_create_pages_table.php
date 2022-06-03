@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('desc')->nullable();
             $table->text('keywords')->nullable();
             $table->text('images')->nullable();
-            $table->date('published_at')->nullable();
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

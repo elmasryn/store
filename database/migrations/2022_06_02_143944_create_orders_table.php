@@ -38,11 +38,11 @@ return new class extends Migration
             $table->double('tax')->nullable();
             $table->double('ship_amount')->nullable();
             $table->double('total');
-            $table->date('published_at')->nullable();
-            $table->date('rejected_at')->nullable();
+            $table->timestamp('published_at')->nullable();
+            $table->timestamp('rejected_at')->nullable();
             $table->text('rejected_reason')->nullable();
-            $table->date('refunded_at')->nullable();
-            $table->date('completed_at')->nullable();
+            $table->timestamp('refunded_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
