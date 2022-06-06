@@ -100,6 +100,7 @@ class DatabaseSeeder extends Seeder
             OrderProductSeeder::class,
             ImageSeeder::class,
             ShippingSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
