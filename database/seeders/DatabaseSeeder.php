@@ -101,6 +101,7 @@ class DatabaseSeeder extends Seeder
             ImageSeeder::class,
             ShippingSeeder::class,
             CommentSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }
