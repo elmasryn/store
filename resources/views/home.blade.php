@@ -16,7 +16,7 @@
             <div class="slide-carousel owl-carousel style-nav-1" data-items="1" data-loop="1" data-nav="true"
                 data-dots="false">
                 <div class="item-slide">
-                    <img src="frontend/images/main-slider-1-1.jpg" alt="" class="img-slide">
+                    <img src="frontend/images/sliders/main-slider-1-1.jpg" alt="" class="img-slide">
                     <div class="slide-info slide-1">
                         <h2 class="f-title">Kid Smart <b>Watches</b></h2>
                         <span class="subtitle">Compra todos tus productos Smart por internet.</span>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="item-slide">
-                    <img src="frontend/images/main-slider-1-2.jpg" alt="" class="img-slide">
+                    <img src="frontend/images/sliders/main-slider-1-2.jpg" alt="" class="img-slide">
                     <div class="slide-info slide-2">
                         <h2 class="f-title">Extra 25% Off</h2>
                         <span class="f-subtitle">On online payments</span>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="item-slide">
-                    <img src="frontend/images/main-slider-1-3.jpg" alt="" class="img-slide">
+                    <img src="frontend/images/sliders/main-slider-1-3.jpg" alt="" class="img-slide">
                     <div class="slide-info slide-3">
                         <h2 class="f-title">Great Range of <b>Exclusive Furniture Packages</b></h2>
                         <span class="f-subtitle">Exclusive Furniture Packages to Suit every need.</span>

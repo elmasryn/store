@@ -102,6 +102,7 @@ class DatabaseSeeder extends Seeder
             ShippingSeeder::class,
             CommentSeeder::class,
             ReviewSeeder::class,
+            SliderSeeder::class,
         ]);
     }
 }

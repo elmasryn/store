@@ -21,8 +21,8 @@ class CountrySeeder extends Seeder
                 'slug' => [Str::slug('Egypt', '-'), Str::slug('Saudi Arabia', '-'), Str::slug('United Arab Emirates', '-'), Str::slug('Sudan', '-'), Str::slug('United States', '-')][$i-1],
                 'currency' => ['EGP', 'SAR', 'AED', 'SDG', 'USD'][$i-1],
                 'code' => ['+20', '+966', '+971', '+249', '+1'][$i-1],
-                'status' => [true, true, true, true, false][$i-1],
                 'img' => ['Egypt.png', 'Saudi-Arabia.png', 'United-Arab-Emirates.png', 'Sudan.png', 'United-States.png'][$i-1],
+                'status' => [true, true, true, true, false][$i-1],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
