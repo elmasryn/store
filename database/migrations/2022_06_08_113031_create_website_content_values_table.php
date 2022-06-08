@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('website_content_areas', function (Blueprint $table) {
+        Schema::create('website_content_values', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->string('name', 100);
-            $table->enum('type', [1, 2, 3])->default(1);    /* 1 text / 2 url / 3 img */
-            $table->boolean('status')->default(true);  /* 1, '1', true active / 0, '0', false inactive */
+            $table->unsignedSmallInteger('website_content_area_id');
+            $table->text('name')->nullable();
+            $table->text('url')->nullable();
+            $table->string('img')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('website_content_area_id')->references('id')->on('website_content_areas')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('website_content_areas');
+        Schema::dropIfExists('website_content_values');
     }
 };

@@ -105,6 +105,7 @@ class DatabaseSeeder extends Seeder
             SliderSeeder::class,
             WishListSeeder::class,
             WebsiteContentAreaSeeder::class,
+            WebsiteContentValueSeeder::class,
         ]);
     }
 }
