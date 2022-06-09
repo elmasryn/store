@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Livewire\AboutUs;
-use App\Http\Livewire\Cart;
-use App\Http\Livewire\Checkout;
-use App\Http\Livewire\ContactUs;
+use App\Http\Livewire\Frontend\AboutUs;
+use App\Http\Livewire\Frontend\Cart;
+use App\Http\Livewire\Frontend\Checkout;
+use App\Http\Livewire\Frontend\ContactUs;
 use App\Http\Livewire\Dashboard\Home as DashboardHome;
-use App\Http\Livewire\Home;
-use App\Http\Livewire\Product;
-use App\Http\Livewire\Shop;
-use App\Http\Livewire\ThankYou;
+use App\Http\Livewire\Frontend\Home;
+use App\Http\Livewire\Frontend\Product;
+use App\Http\Livewire\Frontend\Shop;
+use App\Http\Livewire\Frontend\ThankYou;
 use Illuminate\Support\Facades\Route;
 
 /*

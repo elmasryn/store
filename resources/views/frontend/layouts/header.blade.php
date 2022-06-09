@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                @include('layouts.navbar-up')
+                @include('frontend.layouts.navbar-up')
 
                 <div class="container">
                     <div class="mid-section main-info-area">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
 
-                @include('layouts.navbar-down')
+                @include('frontend.layouts.navbar-down')
 
             </div>
         </div>

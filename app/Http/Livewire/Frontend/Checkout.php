@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Frontend;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class Checkout extends Component
 {
     public function render()
     {
-        return view('checkout');
+        return view('frontend.checkout');
     }
 }

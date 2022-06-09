@@ -26,11 +26,11 @@
 <body class="@yield('body-class', 'home-page home-01')">
 
 
-    @include('layouts.header')
+    @include('frontend.layouts.header')
 
         {{$slot}}
 
-    @include('layouts.footer')
+    @include('frontend.layouts.footer')
 
 
     <script src="/frontend/js/jquery-1.12.4.minb8ff.js?ver=1.12.4"></script>
