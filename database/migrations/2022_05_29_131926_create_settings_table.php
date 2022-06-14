@@ -35,7 +35,7 @@ return new class extends Migration
             $table->double('ship_price_free_start')->nullable();
             $table->double('ship_price_local')->nullable();
             $table->double('ship_price_city')->nullable();
-            $table->boolean('multi notification')->default(0);   /* 1, '1', true active / 0, '0', false inactive */
+            $table->boolean('multi_notification')->default(0);   /* 1, '1', true active / 0, '0', false inactive */
             $table->string('img', 100)->nullable();  /* Icon */
             $table->timestamps();
         });

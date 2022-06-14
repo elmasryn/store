@@ -8,7 +8,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('dashboard.home') }}" class="brand-link">
-        <img src="backend/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="/backend/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light"> {{ auth()->user()->getRoleNames()[0] }} Panel </span>
     </a>
@@ -18,7 +18,8 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="frontend/images/profiles/{{ auth()->user()->profile->img }}" class="img-circle elevation-2" alt="User Image">
+                <img src="/frontend/images/profiles/{{ $profileImg }}" class="img-circle elevation-2"
+                    alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"> {{ auth()->user()->name }} </a>
@@ -42,6 +43,20 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.settings') }}"
+                        class="nav-link {{ request()->routeIs('dashboard.settings') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Settings
+                            {{-- @if (setting()->website_status == '0')
+                        <span class="right badge badge-danger">{{ trans('lang.Closed!') }}</span>
+                        @endif --}}
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -72,7 +87,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="backend/pages/widgets.html" class="nav-link">
+                    <a href="/backend/pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Widgets
@@ -91,49 +106,49 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/layout/top-nav.html" class="nav-link">
+                            <a href="/backend/pages/layout/top-nav.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Top Navigation</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="/backend/pages/layout/top-nav-sidebar.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Top Navigation + Sidebar</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/layout/boxed.html" class="nav-link">
+                            <a href="/backend/pages/layout/boxed.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Boxed</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/layout/fixed-sidebar.html" class="nav-link">
+                            <a href="/backend/pages/layout/fixed-sidebar.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Fixed Sidebar</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                            <a href="/backend/pages/layout/fixed-sidebar-custom.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Fixed Sidebar <small>+ Custom Area</small></p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/layout/fixed-topnav.html" class="nav-link">
+                            <a href="/backend/pages/layout/fixed-topnav.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Fixed Navbar</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/layout/fixed-footer.html" class="nav-link">
+                            <a href="/backend/pages/layout/fixed-footer.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Fixed Footer</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/layout/collapsed-sidebar.html" class="nav-link">
+                            <a href="/backend/pages/layout/collapsed-sidebar.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Collapsed Sidebar</p>
                             </a>
@@ -150,25 +165,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/charts/chartjs.html" class="nav-link">
+                            <a href="/backend/pages/charts/chartjs.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>ChartJS</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/charts/flot.html" class="nav-link">
+                            <a href="/backend/pages/charts/flot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Flot</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/charts/inline.html" class="nav-link">
+                            <a href="/backend/pages/charts/inline.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Inline</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/charts/uplot.html" class="nav-link">
+                            <a href="/backend/pages/charts/uplot.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>uPlot</p>
                             </a>
@@ -185,49 +200,49 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/UI/general.html" class="nav-link">
+                            <a href="/backend/pages/UI/general.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>General</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/UI/icons.html" class="nav-link">
+                            <a href="/backend/pages/UI/icons.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Icons</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/UI/buttons.html" class="nav-link">
+                            <a href="/backend/pages/UI/buttons.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Buttons</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/UI/sliders.html" class="nav-link">
+                            <a href="/backend/pages/UI/sliders.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Sliders</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/UI/modals.html" class="nav-link">
+                            <a href="/backend/pages/UI/modals.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Modals & Alerts</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/UI/navbar.html" class="nav-link">
+                            <a href="/backend/pages/UI/navbar.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Navbar & Tabs</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/UI/timeline.html" class="nav-link">
+                            <a href="/backend/pages/UI/timeline.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Timeline</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/UI/ribbons.html" class="nav-link">
+                            <a href="/backend/pages/UI/ribbons.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Ribbons</p>
                             </a>
@@ -244,25 +259,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/forms/general.html" class="nav-link">
+                            <a href="/backend/pages/forms/general.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>General Elements</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/forms/advanced.html" class="nav-link">
+                            <a href="/backend/pages/forms/advanced.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Advanced Elements</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/forms/editors.html" class="nav-link">
+                            <a href="/backend/pages/forms/editors.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Editors</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/forms/validation.html" class="nav-link">
+                            <a href="/backend/pages/forms/validation.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Validation</p>
                             </a>
@@ -279,19 +294,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/tables/simple.html" class="nav-link">
+                            <a href="/backend/pages/tables/simple.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Simple Tables</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/tables/data.html" class="nav-link">
+                            <a href="/backend/pages/tables/data.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>DataTables</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/tables/jsgrid.html" class="nav-link">
+                            <a href="/backend/pages/tables/jsgrid.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>jsGrid</p>
                             </a>
@@ -300,7 +315,7 @@
                 </li>
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
-                    <a href="backend/pages/calendar.html" class="nav-link">
+                    <a href="/backend/pages/calendar.html" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Calendar
@@ -309,7 +324,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="backend/pages/gallery.html" class="nav-link">
+                    <a href="/backend/pages/gallery.html" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Gallery
@@ -317,7 +332,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="backend/pages/kanban.html" class="nav-link">
+                    <a href="/backend/pages/kanban.html" class="nav-link">
                         <i class="nav-icon fas fa-columns"></i>
                         <p>
                             Kanban Board
@@ -334,19 +349,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/mailbox/mailbox.html" class="nav-link">
+                            <a href="/backend/pages/mailbox/mailbox.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Inbox</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/mailbox/compose.html" class="nav-link">
+                            <a href="/backend/pages/mailbox/compose.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Compose</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/mailbox/read-mail.html" class="nav-link">
+                            <a href="/backend/pages/mailbox/read-mail.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Read</p>
                             </a>
@@ -363,61 +378,61 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/examples/invoice.html" class="nav-link">
+                            <a href="/backend/pages/examples/invoice.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Invoice</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/profile.html" class="nav-link">
+                            <a href="/backend/pages/examples/profile.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Profile</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/e-commerce.html" class="nav-link">
+                            <a href="/backend/pages/examples/e-commerce.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>E-commerce</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/projects.html" class="nav-link">
+                            <a href="/backend/pages/examples/projects.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Projects</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/project-add.html" class="nav-link">
+                            <a href="/backend/pages/examples/project-add.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Project Add</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/project-edit.html" class="nav-link">
+                            <a href="/backend/pages/examples/project-edit.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Project Edit</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/project-detail.html" class="nav-link">
+                            <a href="/backend/pages/examples/project-detail.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Project Detail</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/contacts.html" class="nav-link">
+                            <a href="/backend/pages/examples/contacts.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Contacts</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/faq.html" class="nav-link">
+                            <a href="/backend/pages/examples/faq.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>FAQ</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/contact-us.html" class="nav-link">
+                            <a href="/backend/pages/examples/contact-us.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Contact us</p>
                             </a>
@@ -443,25 +458,25 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/login.html" class="nav-link">
+                                    <a href="/backend/pages/examples/login.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Login v1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/register.html" class="nav-link">
+                                    <a href="/backend/pages/examples/register.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Register v1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/forgot-password.html" class="nav-link">
+                                    <a href="/backend/pages/examples/forgot-password.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Forgot Password v1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/recover-password.html" class="nav-link">
+                                    <a href="/backend/pages/examples/recover-password.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Recover Password v1</p>
                                     </a>
@@ -478,25 +493,25 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/login-v2.html" class="nav-link">
+                                    <a href="/backend/pages/examples/login-v2.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Login v2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/register-v2.html" class="nav-link">
+                                    <a href="/backend/pages/examples/register-v2.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Register v2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/forgot-password-v2.html" class="nav-link">
+                                    <a href="/backend/pages/examples/forgot-password-v2.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Forgot Password v2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="backend/pages/examples/recover-password-v2.html" class="nav-link">
+                                    <a href="/backend/pages/examples/recover-password-v2.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Recover Password v2</p>
                                     </a>
@@ -504,49 +519,49 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/lockscreen.html" class="nav-link">
+                            <a href="/backend/pages/examples/lockscreen.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Lockscreen</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/legacy-user-menu.html" class="nav-link">
+                            <a href="/backend/pages/examples/legacy-user-menu.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Legacy User Menu</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/language-menu.html" class="nav-link">
+                            <a href="/backend/pages/examples/language-menu.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Language Menu</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/404.html" class="nav-link">
+                            <a href="/backend/pages/examples/404.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Error 404</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/500.html" class="nav-link">
+                            <a href="/backend/pages/examples/500.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Error 500</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/pace.html" class="nav-link">
+                            <a href="/backend/pages/examples/pace.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pace</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/examples/blank.html" class="nav-link">
+                            <a href="/backend/pages/examples/blank.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Blank Page</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/starter.html" class="nav-link">
+                            <a href="/backend/starter.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Starter Page</p>
                             </a>
@@ -563,13 +578,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="backend/pages/search/simple.html" class="nav-link">
+                            <a href="/backend/pages/search/simple.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Simple Search</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="backend/pages/search/enhanced.html" class="nav-link">
+                            <a href="/backend/pages/search/enhanced.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Enhanced</p>
                             </a>
@@ -578,7 +593,7 @@
                 </li>
                 <li class="nav-header">MISCELLANEOUS</li>
                 <li class="nav-item">
-                    <a href="backend/iframe.html" class="nav-link">
+                    <a href="/backend/iframe.html" class="nav-link">
                         <i class="nav-icon fas fa-ellipsis-h"></i>
                         <p>Tabbed IFrame Plugin</p>
                     </a>

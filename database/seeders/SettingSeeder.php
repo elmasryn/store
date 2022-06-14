@@ -19,7 +19,7 @@ class SettingSeeder extends Seeder
             'desc' => 'Everything you love about Elmasry store is now on elmasrystore.com. Discover and shop electronics, computers, apparel and accessories, shoes, watches, furniture, home and kitchen goods, beauty and personal care, grocery, baby products, toys and more. Enjoy great deals, cash on delivery and hassle-free returns.',
             'keywords' => 'store, elmasrystore.com, Elmasry store, Elmasry, electronics, accessories, shoes, watches',
             'email' => 'admin@test.com',
-            'website_message' => 'The web site closed temporary for maintainance',
+            'website_message' => 'The web site closed temporary for maintenance',
             'comment_message' => 'comments will be available soon, thank you',
             'review_message' => 'reviews will be available soon, thank you',
             'tax' => 14.00,
