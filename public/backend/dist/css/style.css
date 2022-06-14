@@ -7,3 +7,7 @@
 .colored-toast.swal2-icon-success {
   background-color: #a5dc86 !important;
 }
+
+.swal2-toast .swal2-close {
+  color: #545454;
+}

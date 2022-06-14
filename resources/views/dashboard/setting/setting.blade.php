@@ -43,6 +43,7 @@
                 <div class="tab-pane fade show active" id="nav-general" role="tabpanel"
                     aria-labelledby="nav-general-tab">
                     @include('dashboard.setting._general')
+                    @include('alerts')
                 </div>
             </div>
 

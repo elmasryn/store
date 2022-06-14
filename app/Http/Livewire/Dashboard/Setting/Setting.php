@@ -14,7 +14,7 @@ class Setting extends Component
     public $showWebsiteMessage;
     public $showCommentMessage;
     public $showReviewMessage;
-    
+
     public function mount()
     {
         $this->settings = settings();
@@ -36,9 +36,8 @@ class Setting extends Component
     public function submit()
     {
         $this->validate();
-        if($this->settings->save())
-        debug(session()->flash('success2', 'Settings updated successfully'));
-            // return session()->flash('success2', 'Settings updated successfully');
+        $this->settings->save();
+        session()->flash('success', 'Settings updated successfully');
     }
 
     protected $rules = [
@@ -61,6 +60,4 @@ class Setting extends Component
         'settings.comment_published_status' => 'boolean',
         'settings.review_published_status' => 'boolean',
     ];
-
-
 }

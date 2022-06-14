@@ -31,7 +31,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="/backend/plugins/summernote/summernote-bs4.min.css">
 
-    <script src="/frontend/js/sweetalert2.min.css"></script>
+    <script src="/frontend/css/sweetalert2.min.css"></script>
 
     <!-- My custome -->
     <link rel="stylesheet" href="/backend/dist/css/style.css">
@@ -102,7 +102,6 @@
     <script src="/backend/dist/js/pages/dashboard.js"></script>
 
     <script src="/frontend/js/sweetalert2.all.min.js"></script>
-    @include('alerts')
     @livewireScripts
 </body>
 

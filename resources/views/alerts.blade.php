@@ -1,21 +1,6 @@
 @if (session('success'))
     <script type="text/javascript">
         $(document).ready(function() {
-            Swal.fire({
-                position: "center",
-                icon: 'success',
-                title: "{{ session('success') }}",
-                showConfirmButton: true,
-                timer: 6000
-            })
-        });
-    </script>
-@endif
-
-
-@if (session('success2'))
-    <script type="text/javascript">
-        $(document).ready(function() {
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-right',
@@ -24,12 +9,29 @@
                     popup: 'colored-toast'
                 },
                 showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true
+                timer: 6000,
+                timerProgressBar: true,
+                showCloseButton: true,
             })
-            await Toast.fire({
+            Toast.fire({
                 icon: 'success',
-                title: 'Success'
+                title: "{{ session('success') }}",
+            })
+
+        });
+    </script>
+@endif
+
+
+@if (session('success2'))
+    <script type="text/javascript">
+        $(document).ready(function() {
+            Swal.fire({
+                position: "center",
+                icon: 'success',
+                title: "{{ session('success2') }}",
+                showConfirmButton: true,
+                timer: 6000
             })
         });
     </script>
