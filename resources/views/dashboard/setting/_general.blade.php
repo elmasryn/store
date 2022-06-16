@@ -56,7 +56,7 @@
             <label for="multi_notification"> Allow for users to choose with multi notification </label>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="multi_notification"
-                    wire:model="settings.multi_notification" @checked($settings?->multi_notification == true)>
+                    wire:model="settings.multi_notification" @checked($settings->multi_notification == true)>
                 <label class="custom-control-label" for="multi_notification"></label>
             </div>
         </div>
@@ -65,7 +65,7 @@
             <label for="map_status"> Map status </label>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="map_status" wire:model="settings.map_status"
-                    @checked($settings?->map_status == true)>
+                    @checked($settings->map_status == true)>
                 <label class="custom-control-label" for="map_status"></label>
             </div>
         </div>
@@ -96,7 +96,7 @@
 
             @if ($img)
                 <img src="{{ $img->temporaryUrl() }}" style="width:40px;height:40px;margin-top:10px">
-            @elseif (!empty($settings?->img))
+            @elseif (!empty($settings->img))
                 <img src="/frontend/images/{{ $settings->img }}" style="width:40px;height:40px;margin-top:10px" />
             @endif
         </div>
@@ -109,7 +109,7 @@
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="website_status"
                     wire:model="settings.website_status" wire:click="$toggle('showWebsiteMessage')"
-                    @checked($settings?->website_status == true)>
+                    @checked($settings->website_status == true)>
                 <label class="custom-control-label" for="website_status"></label>
             </div>
         </div>
@@ -117,7 +117,7 @@
         <div class="p-3 col-md-6 website_message {{ $showWebsiteMessage == true ? 'd-none' : '' }}">
             <label for="website_message"> Message for closed website </label>
             <textarea id="website_message" class="form-control @error('settings.website_message') is-invalid @enderror"
-                wire:model="settings.website_message" cols="40" rows="3">{{ $settings?->website_message }}</textarea>
+                wire:model="settings.website_message" cols="40" rows="3">{{ $settings->website_message }}</textarea>
             @error('settings.website_message')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -133,7 +133,7 @@
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="comment_status"
                     wire:model="settings.comment_status" wire:click="$toggle('showCommentMessage')"
-                    @checked($settings?->comment_status == true)>
+                    @checked($settings->comment_status == true)>
                 <label class="custom-control-label" for="comment_status"></label>
             </div>
         </div>
@@ -141,7 +141,7 @@
         <div class="p-3 col-md-6 comment_message {{ $showCommentMessage == true ? 'd-none' : '' }}">
             <label for="comment_message"> Message for closed comment </label>
             <textarea id="comment_message" class="form-control @error('settings.comment_message') is-invalid @enderror"
-                wire:model="settings.comment_message" cols="40" rows="3">{{ $settings?->comment_message }}</textarea>
+                wire:model="settings.comment_message" cols="40" rows="3">{{ $settings->comment_message }}</textarea>
             @error('settings.comment_message')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -157,7 +157,7 @@
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="review_status"
                     wire:model="settings.review_status" wire:click="$toggle('showReviewMessage')"
-                    @checked($settings?->review_status == true)>
+                    @checked($settings->review_status == true)>
                 <label class="custom-control-label" for="review_status"></label>
             </div>
         </div>
@@ -165,7 +165,7 @@
         <div class="p-3 col-md-6 review_message {{ $showReviewMessage == true ? 'd-none' : '' }}">
             <label for="review_message"> Message for closed review </label>
             <textarea id="review_message" class="form-control @error('settings.review_message') is-invalid @enderror"
-                wire:model="settings.review_message" cols="40" rows="3">{{ $settings?->review_message }}</textarea>
+                wire:model="settings.review_message" cols="40" rows="3">{{ $settings->review_message }}</textarea>
             @error('settings.review_message')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -181,7 +181,7 @@
                 approved ?</label>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="product_published_status"
-                    wire:model="settings.product_published_status" @checked($settings?->product_published_status == true)>
+                    wire:model="settings.product_published_status" @checked($settings->product_published_status == true)>
                 <label class="custom-control-label" for="product_published_status"></label>
             </div>
         </div>
@@ -191,7 +191,7 @@
                 approved ?</label>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="page_published_status"
-                    wire:model="settings.page_published_status" @checked($settings?->page_published_status == true)>
+                    wire:model="settings.page_published_status" @checked($settings->page_published_status == true)>
                 <label class="custom-control-label" for="page_published_status"></label>
             </div>
         </div>
@@ -201,7 +201,7 @@
                 approved ?</label>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="comment_published_status"
-                    wire:model="settings.comment_published_status" @checked($settings?->comment_published_status == true)>
+                    wire:model="settings.comment_published_status" @checked($settings->comment_published_status == true)>
                 <label class="custom-control-label" for="comment_published_status"></label>
             </div>
         </div>
@@ -211,7 +211,7 @@
                 approved ?</label>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="review_published_status"
-                    wire:model="settings.review_published_status" @checked($settings?->review_published_status == true)>
+                    wire:model="settings.review_published_status" @checked($settings->review_published_status == true)>
                 <label class="custom-control-label" for="review_published_status"></label>
             </div>
         </div>

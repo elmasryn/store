@@ -6,7 +6,13 @@ use Carbon\Carbon;
 if (!function_exists('settings')) {
 	function settings()
 	{
-		return \App\Models\Setting::first();
+		$settings = \App\Models\Setting::firstOrNew();
+            $settings->website_message = 'The web site closed temporary for maintenance';
+            $settings->comment_message = 'comments will be available soon, thank you';
+            $settings->review_message = 'reviews will be available soon, thank you';
+            $settings->img = 'favicon.ico';
+		$settings->save();
+		return $settings->fresh();
 	}
 }
 

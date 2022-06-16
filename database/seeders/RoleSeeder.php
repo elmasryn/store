@@ -25,25 +25,49 @@ class RoleSeeder extends Seeder
         }
 
         // gets all permissions via Gate::before rule; see AuthServiceProvider
-        $role0 = Role::create(['name' => 'super-admin'])
-            ->givePermissionTo(Permission::all());
-            
-        $role1 = Role::create(['name' => 'admin'])
+        Role::create(['name' => 'super-admin'])
             ->givePermissionTo(Permission::all());
 
-        $role2 = Role::create(['name' => 'supervisor'])
+        Role::create(['name' => 'admin'])
+            ->givePermissionTo(Permission::all());
+
+        Role::create(['name' => 'supervisor'])
             ->givePermissionTo($this->supervisorPermission());
 
-        $role3 = Role::create(['name' => 'vendor'])
+        Role::create(['name' => 'vendor'])
             ->givePermissionTo($this->vendorPermission());
 
-        $role4 = Role::create(['name' => 'shipper'])
+        Role::create(['name' => 'shipper'])
             ->givePermissionTo($this->userPermission());
         // ->givePermissionTo(['name' => 'show shipping']);
 
-        $role5 = Role::create(['name' => 'user'])
+        Role::create(['name' => 'user'])
             ->givePermissionTo($this->userPermission());
+
+        $user = \App\Models\User::factory()
+            ->hasProfile(1, [
+                'gender' => 1,
+                'first_name' => 'Mohamed',
+                'last_name' => 'Elmasry',
+                'company_name' => Null,
+                'code' => Null,
+                'mobile' => Null,
+                'about' => Null,
+                'country' => 'egypt',
+                'city' => Null,
+                'address' => Null,
+                'lat' => Null,
+                'long' => Null,
+                'img' => Null,
+            ])->hasNotifying()->create([
+                'name' => 'admin',
+                'email' => 'admin@test.com',
+                'status' => true,
+            ]);
+        $user->assignRole('super-admin');
     }
+
+
 
     protected $adminPermissions = [
         ['name' => 'show category'], ['name' => 'create category'], ['name' => 'edit category'], ['name' => 'delete category'], ['name' => 'publish category'],

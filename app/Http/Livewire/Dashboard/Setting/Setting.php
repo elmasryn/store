@@ -18,9 +18,10 @@ class Setting extends Component
     public function mount()
     {
         $this->settings = settings();
-        $this->showWebsiteMessage = $this->settings?->website_status ?? false;
-        $this->showCommentMessage = $this->settings?->comment_status ?? false;
-        $this->showReviewMessage = $this->settings?->review_status ?? false;
+        debug($this->settings);
+        $this->showWebsiteMessage = $this->settings->website_status;
+        $this->showCommentMessage = $this->settings->comment_status;
+        $this->showReviewMessage = $this->settings->review_status;
     }
 
     public function render()
@@ -28,9 +29,9 @@ class Setting extends Component
         return view('dashboard.setting.setting')->layout('dashboard.layouts.app');
     }
 
-    public function updated($settings)
+    public function updated($allAttrebutes)
     {
-        $this->validateOnly($settings, $this->rules);
+        $this->validateOnly($allAttrebutes, $this->rules);
     }
 
     public function submit()

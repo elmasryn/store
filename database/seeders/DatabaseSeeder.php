@@ -19,14 +19,16 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
 
         // create users with (profile + notifyings) and assign roles to them
-        $user = User::factory()
-            ->hasProfile()
-            ->hasNotifying()
-            ->create([
-                'name' => 'admin',
-                'email' => 'admin@test.com',
-            ]);
-        $user->assignRole('super-admin');
+        if (!User::count()) {
+            $user = User::factory()
+                ->hasProfile()
+                ->hasNotifying()
+                ->create([
+                    'name' => 'admin',
+                    'email' => 'admin@test.com',
+                ]);
+            $user->assignRole('super-admin');
+        }
 
         $user = User::factory()
             ->hasProfile()
@@ -75,11 +77,11 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 1; $i < 11; $i++) {
             $user = User::factory()
-            ->hasProfile()
-            ->hasNotifying()
-            ->create();
+                ->hasProfile()
+                ->hasNotifying()
+                ->create();
             $userRole = Arr::random(['user', 'user', 'user', 'user', 'user', 'supervisor', 'vendor', 'shipper']);
-                $user->assignRole($userRole);
+            $user->assignRole($userRole);
         }
 
         $this->call([
