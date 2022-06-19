@@ -18,7 +18,6 @@ class Setting extends Component
     public function mount()
     {
         $this->settings = settings();
-        debug($this->settings);
         $this->showWebsiteMessage = $this->settings->website_status;
         $this->showCommentMessage = $this->settings->comment_status;
         $this->showReviewMessage = $this->settings->review_status;

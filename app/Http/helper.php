@@ -12,7 +12,7 @@ if (!function_exists('settings')) {
             $settings->review_message = 'reviews will be available soon, thank you';
             $settings->img = 'favicon.ico';
 		$settings->save();
-		return $settings->fresh();
+		return $settings;
 	}
 }
 

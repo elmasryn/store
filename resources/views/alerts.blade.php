@@ -9,7 +9,7 @@
                     popup: 'colored-toast'
                 },
                 showConfirmButton: false,
-                timer: 6000,
+                timer: 4000,
                 timerProgressBar: true,
                 showCloseButton: true,
             })
@@ -31,7 +31,7 @@
                 icon: 'success',
                 title: "{{ session('success2') }}",
                 showConfirmButton: true,
-                timer: 6000
+                timer: 4000
             })
         });
     </script>
@@ -47,7 +47,7 @@
                 type: "error",
                 title: "{{ session('error') }}",
                 showConfirmButton: true,
-                timer: 6000,
+                timer: 4000,
             })
         });
     </script>
