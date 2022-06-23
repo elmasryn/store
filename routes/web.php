@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 // BackEnd
 use App\Http\Livewire\Dashboard\Home\Home as DashboardHome;
-use App\Http\Livewire\Dashboard\Setting\Setting;
+use App\Http\Livewire\Dashboard\Settings\Settings;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +42,7 @@ require __DIR__.'/auth.php';
 // BackEnd
 Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function () {
     Route::get('/', DashboardHome::class)->name('home');
-    Route::get('/settings', Setting::class)->name('settings');
+    Route::get('/settings', Settings::class)->name('settings');
 });
 //--------------------------------------------------------------------------
 

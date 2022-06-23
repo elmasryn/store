@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->tinyIncrements('id');
             $table->string('website_name', 100)->nullable();
-            $table->text('desc')->nullable();
+            $table->text('description')->nullable();
             $table->text('keywords')->nullable();
             $table->string('email', 100)->nullable();
             $table->boolean('map_status')->default(0);  /* 1, '1', true active / 0, '0', false inactive */

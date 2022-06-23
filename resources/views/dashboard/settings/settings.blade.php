@@ -26,25 +26,23 @@
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general"
+                    <a class="nav-item nav-link {{ $tab == 1 ? 'active' : '' }}" wire:click="tab(1)" tab="{{$tab}}" id="nav-general-tab" data-toggle="tab" href="#nav-general"
                         role="tab" aria-controls="nav-general" aria-selected="true">General Settings</a>
-                    <a class="nav-item nav-link" id="nav-product-tab" data-toggle="tab" href="#nav-product" role="tab"
-                        aria-controls="nav-product" aria-selected="false">Related to products</a>
-                    <a class="nav-item nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab"
-                        aria-controls="nav-shipping" aria-selected="false">shipping status</a>
+                    <a class="nav-item nav-link {{ $tab == 2 ? 'active' : '' }}" wire:click="tab(2)" tab="{{$tab}}" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping"
+                        role="tab" aria-controls="nav-shipping" aria-selected="false">Shipping status</a>
                 </div>
             </nav>
 
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade" id="nav-product" role="tabpanel" aria-labelledby="nav-product-tab">...</div>
-                <div class="tab-pane fade" id="nav-shipping" role="tabpanel" aria-labelledby="nav-shipping-tab">...
+                <div class="tab-pane fade {{ $tab == 1 ? 'show active' : '' }}" id="nav-general" role="tabpanel"
+                    aria-labelledby="nav-general-tab">
+                    @include('dashboard.settings._general')
                 </div>
 
-                <div class="tab-pane fade show active" id="nav-general" role="tabpanel"
-                    aria-labelledby="nav-general-tab">
-                    @include('dashboard.setting._general')
-                    @include('alerts')
+                <div class="tab-pane fade {{ $tab == 2 ? 'show active' : '' }}" id="nav-shipping" role="tabpanel" aria-labelledby="nav-shipping-tab">
+                    @include('dashboard.settings._shipping')
                 </div>
+                @include('alerts')
             </div>
 
         </div>

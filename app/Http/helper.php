@@ -6,13 +6,50 @@ use Carbon\Carbon;
 if (!function_exists('settings')) {
 	function settings()
 	{
-		$settings = \App\Models\Setting::firstOrNew();
-            $settings->website_message = 'The web site closed temporary for maintenance';
-            $settings->comment_message = 'comments will be available soon, thank you';
-            $settings->review_message = 'reviews will be available soon, thank you';
-            $settings->img = 'favicon.ico';
-		$settings->save();
-		return $settings;
+		return \App\Models\Setting::firstOr(function () {
+			$settings = new \App\Models\Setting();
+			$settings->website_message = 'The web site closed temporary for maintenance';
+			$settings->comment_message = 'comments will be available soon, thank you';
+			$settings->review_message = 'reviews will be available soon, thank you';
+			$settings->save();
+			return $settings->fresh();
+		});
+	}
+}
+
+if (!function_exists('is_sha1')) {
+	function is_sha1($str)
+	{
+		return strlen($str) === 40 ? true : false;
+	}
+}
+
+if (!function_exists('img')) {
+	function img($object, $img, $location = '')
+	{
+		if ($img) {
+			delete_img($object, $location);
+			$imgName = $img->store($location);
+			return $object->img = $imgName;
+		}
+	}
+}
+
+if (!function_exists('store_img')) {
+	function store_img($object, $img, $location = '')
+	{
+		if ($img) {
+			$imgName = $img->store($location);
+			return $object->img = $imgName;
+		}
+	}
+}
+
+if (!function_exists('delete_img')) {
+	function delete_img($object, $location = '')
+	{
+		if ($object->img && is_sha1(Illuminate\Support\Str::beforeLast($object->img, '.')))
+			Illuminate\Support\Facades\Storage::delete($location . '/' . $object->img);
 	}
 }
 
@@ -44,36 +81,35 @@ if (!function_exists('lang')) {
 	function lang()
 	{
 		return
-		[
-			'decimal'             => trans('lang.decimal'),
-			'emptyTable'          => trans('lang.emptyTable'),
-			'info'                => trans('lang.info'),
-			'infoEmpty'           => trans('lang.infoEmpty'),
-			'infoFiltered'        => trans('lang.infoFiltered'),
-			'infoPostFix'         => trans('lang.infoPostFix'),
-			'thousands'           => trans('lang.thousands'),
-			'lengthMenu'          => trans('lang.lengthMenu'),
-			'loadingRecords'      => trans('lang.loadingRecords'),
-			'processing'          => trans('lang.processing'),
-			'search'              => trans('lang.search'),
-			'zeroRecords'         => trans('lang.zeroRecords'),
-			'paginate'          => [
-				'first'            => trans('lang.first'),
-				'last'             => trans('lang.last'),
-				'next'             => trans('lang.next'),
-				'previous'         => trans('lang.previous'),
-			],
-			'aria'               => [
-				'sortAscending'    => trans('lang.sortAscending'),
-				'sortDescending'   => trans('lang.sortDescending'),
-			],
-			'buttons'            => [
-				'create'           => trans('lang.create'),
-				'print'            => trans('lang.print'),
-				'reload'           => trans('lang.reload'),
-			]
-		
-		];
+			[
+				'decimal'             => trans('lang.decimal'),
+				'emptyTable'          => trans('lang.emptyTable'),
+				'info'                => trans('lang.info'),
+				'infoEmpty'           => trans('lang.infoEmpty'),
+				'infoFiltered'        => trans('lang.infoFiltered'),
+				'infoPostFix'         => trans('lang.infoPostFix'),
+				'thousands'           => trans('lang.thousands'),
+				'lengthMenu'          => trans('lang.lengthMenu'),
+				'loadingRecords'      => trans('lang.loadingRecords'),
+				'processing'          => trans('lang.processing'),
+				'search'              => trans('lang.search'),
+				'zeroRecords'         => trans('lang.zeroRecords'),
+				'paginate'          => [
+					'first'            => trans('lang.first'),
+					'last'             => trans('lang.last'),
+					'next'             => trans('lang.next'),
+					'previous'         => trans('lang.previous'),
+				],
+				'aria'               => [
+					'sortAscending'    => trans('lang.sortAscending'),
+					'sortDescending'   => trans('lang.sortDescending'),
+				],
+				'buttons'            => [
+					'create'           => trans('lang.create'),
+					'print'            => trans('lang.print'),
+					'reload'           => trans('lang.reload'),
+				]
+
+			];
 	}
 }
-

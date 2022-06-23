@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Dashboard\Setting;
+namespace App\Http\Livewire\Dashboard\Settings;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Setting extends Component
+class Settings extends Component
 {
     use WithFileUploads;
 
@@ -14,6 +14,7 @@ class Setting extends Component
     public $showWebsiteMessage;
     public $showCommentMessage;
     public $showReviewMessage;
+    public $tab = 1;
 
     public function mount()
     {
@@ -25,7 +26,7 @@ class Setting extends Component
 
     public function render()
     {
-        return view('dashboard.setting.setting')->layout('dashboard.layouts.app');
+        return view('dashboard.settings.settings')->layout('dashboard.layouts.app');
     }
 
     public function updated($allAttrebutes)
@@ -36,14 +37,22 @@ class Setting extends Component
     public function submit()
     {
         $this->validate();
+
+        img($this->settings, $this->img);
+
         $this->settings->save();
         session()->flash('success', 'Settings updated successfully');
+    }
+
+    public function tab($tab)
+    {
+        $this->tab = $tab;
     }
 
     protected $rules = [
         'settings.website_name' => 'required|string|min:3|max:100',
         'settings.email' => 'nullable|email',
-        'settings.desc' => 'nullable|string',
+        'settings.description' => 'nullable|string',
         'settings.keywords' => 'nullable|string',
         'settings.multi_notification' => 'boolean',
         'settings.map_status' => 'boolean',
@@ -59,5 +68,10 @@ class Setting extends Component
         'settings.page_published_status' => 'boolean',
         'settings.comment_published_status' => 'boolean',
         'settings.review_published_status' => 'boolean',
+
+        'settings.ship_method' => 'nullable|in:0,1,2',
+        'settings.ship_price_free_start' => 'nullable|numeric',
+        'settings.ship_price_local' => 'nullable|numeric',
+        'settings.ship_price_city' => 'nullable|numeric',
     ];
 }

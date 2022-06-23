@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'inside'),
+    'default' => env('FILESYSTEM_DISK', 'frontend'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,10 +44,19 @@ return [
             'throw' => false,
         ],
 
-        // elmasry (to use with heroku)
-        'inside' => [
+        // elmasry (to use with heroku) - frontend
+        'frontend' => [
             'driver' => 'local',
-            'root' => public_path('img'),
+            'root' => public_path('frontend/images'),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        // elmasry (to use with heroku) - backend
+        'backend' => [
+            'driver' => 'local',
+            'root' => public_path('backend/images'),
             'url' => env('APP_URL'),
             'visibility' => 'public',
             'throw' => false,
